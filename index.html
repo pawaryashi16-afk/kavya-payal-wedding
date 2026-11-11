@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kavya & Payal - Shubh Vivah</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f7ecd8;color:#542b30;font-family:Georgia,serif}
+main{max-width:520px;margin:auto;min-height:100vh;background:#fff9ee;padding-bottom:80px}
+header{text-align:center;padding:35px 15px;background:linear-gradient(135deg,#17264e,#76243a);color:#f5d58c}
+header h1{font-size:36px;font-weight:normal}
+.small{letter-spacing:3px;font-size:12px}
+.gold{color:#f5d58c}
+section{padding:25px 18px;text-align:center}
+h2{color:#79283d;font-weight:normal}
+button{border:0;border-radius:30px;padding:13px 22px;background:#a47a38;color:white;font-size:15px}
+#scratchbox{height:140px;position:relative;margin:20px auto;max-width:330px;background:white;border:1px solid #c5a15a;border-radius:12px;overflow:hidden}
+#date{position:absolute;inset:0;display:grid;place-content:center;color:#76283d;font-size:25px}
+#date small{font-size:11px;letter-spacing:3px}
+#scratch{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+.doors{display:flex;height:260px;margin:15px;perspective:800px}
+.door{width:50%;background:#17274f;color:#e9c477;border:5px double #d5b365;display:grid;place-content:center;font-size:25px;transition:transform 1.4s;transform-origin:left}
+.door:last-child{background:#70243a;transform-origin:right}
+.doors.open .door:first-child{transform:rotateY(-105deg)}
+.doors.open .door:last-child{transform:rotateY(105deg)}
+.page{display:none}.page.active{display:block}
+.card{background:#fff;border:1px solid #e1cda2;border-radius:14px;padding:17px;margin:13px 0;text-align:left}
+.card h3{color:#79283d;margin:8px 0}
+.card p{font-size:14px;line-height:1.7}
+.dateLabel{font-size:12px;color:#a27b38;letter-spacing:2px}
+nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:520px;display:flex;background:#fffaf0;border-top:1px solid #ddc99e;justify-content:space-around;padding:12px 0}
+nav button{background:transparent;color:#79283d;padding:8px;font-size:12px}
+input{width:100%;padding:12px;margin:8px 0;border:1px solid #d9c59c;border-radius:9px}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="small">॥ श्री गणेशाय नमः ॥</div>
+<p>सादर आमंत्रण · YOU ARE INVITED</p>
+<h1>Kavya <span class="gold">&</span> Payal</h1>
+<p>शुभ विवाह समारोह</p>
+<p class="gold">12 December 2026 · Bhopal</p>
+</header>
+
+<section id="welcome" class="page active">
+<p class="dateLabel">A LITTLE SURPRISE FOR YOU</p>
+<h2>शादी की तारीख़ जानने के लिए</h2>
+<p>नीचे दिए कार्ड को उंगली से Scratch करें</p>
+<div id="scratchbox">
+<div id="date"><small>SHUBH VIVAH</small>12 दिसंबर 2026</div>
+<canvas id="scratch"></canvas>
+</div>
+<p>आपका हार्दिक स्वागत है।</p>
+<h2>शुभ विवाह</h2>
+<div class="doors" id="doors">
+<div class="door">❀<br>काव्या</div>
+<div class="door">ॐ<br>पायल</div>
+</div>
+<button onclick="openCard()">आमंत्रण खोलें</button>
+<p id="guest"></p>
+</section>
+
+<div id="inside" style="display:none">
+<section id="home" class="page active">
+<p class="dateLabel">WITH LOVE & BLESSINGS</p>
+<h2>आपका हार्दिक स्वागत है</h2>
+<p>दो परिवारों के इस शुभ मिलन में आपकी उपस्थिति हमारे लिए अनमोल है।</p>
+<h2>Kavya & Payal</h2>
+<p>12 · 12 · 2026</p>
+</section>
+
+<section id="rasmein" class="page">
+<p class="dateLabel">CELEBRATIONS</p>
+<h2>शुभ अवसर · Wedding Functions</h2>
+<div class="card"><span class="dateLabel">09 DECEMBER 2026</span><h3>माता पूजन · Mata Pujan</h3><p>📍 Sheetal Town, Bhopal</p></div>
+<div class="card"><span class="dateLabel">10 DECEMBER 2026</span><h3>संगीत · Sangeet</h3><p>📍 Panchsheel Nagar, Bhopal</p></div>
+<div class="card"><span class="dateLabel">11 DECEMBER 2026</span><h3>मेहंदी एवं मंडप · Mehndi & Mandap</h3><p>📍 Sheetal Town, Bhopal</p></div>
+<div class="card"><span class="dateLabel">12 DECEMBER 2026</span><h3>हल्दी एवं बारात · Haldi & Baraat</h3><p>📍 Manas Bhawan, Bhopal</p></div>
+<div class="card"><span class="dateLabel">13 DECEMBER 2026</span><h3>रिसेप्शन · Reception</h3><p>📍 Agrawal Garden, Mandideep</p></div>
+</section>
+
+<section id="venue" class="page">
+<p class="dateLabel">CELEBRATION LOCATIONS</p>
+<h2>कार्यक्रम स्थल · Venues</h2>
+<div class="card"><h3>Sheetal Town</h3><p>Mata Pujan & Mehndi-Mandap<br>Bhopal</p></div>
+<div class="card"><h3>Panchsheel Nagar</h3><p>Sangeet · Bhopal</p></div>
+<div class="card"><h3>Manas Bhawan</h3><p>Haldi & Baraat · Bhopal</p></div>
+<div class="card"><h3>Agrawal Garden</h3><p>Reception · Mandideep</p></div>
+<p>सटीक पते परिवार द्वारा साझा किए जाएँगे।</p>
+</section>
+
+<section id="rsvp" class="page">
+<p class="dateLabel">LET US KNOW</p>
+<h2>आपका आगमन · RSVP</h2>
+<p>आपकी उपस्थिति हमारे लिए खुशी की बात होगी।</p>
+<input id="guestName" placeholder="आपका नाम">
+<input id="guestCount" type="number" min="1" placeholder="कितने सदस्य आएँगे?">
+<button onclick="sendRSVP()">WhatsApp पर जवाब भेजें</button>
+<p>स्नेह सहित,<br><b>Pawar & Sarkar Families</b></p>
+</section>
+</div>
+
+<nav id="nav" style="display:none">
+<button onclick="showPage('home')">⌂ HOME</button>
+<button onclick="showPage('rasmein')">✧ RASMEIN</button>
+<button onclick="showPage('venue')">♧ VENUE</button>
+<button onclick="showPage('rsvp')">✉ RSVP</button>
+</nav>
+</main>
+
+<script>
+const params=new URLSearchParams(location.search);
+const guest=params.get('guest');
+if(guest)document.getElementById('guest').textContent='प्रिय '+guest+' एवं परिवार, आपका स्वागत है।';
+
+const canvas=document.getElementById('scratch');
+const ctx=canvas.getContext('2d');
+function setup(){
+const r=canvas.getBoundingClientRect();
+const d=window.devicePixelRatio||1;
+canvas.width=r.width*d;canvas.height=r.height*d;
+ctx.scale(d,d);
+ctx.fillStyle='#aaa49b';ctx.fillRect(0,0,r.width,r.height);
+ctx.fillStyle='#51483d';ctx.textAlign='center';
+ctx.font='bold 15px Arial';ctx.fillText('✧ SCRATCH HERE ✧',r.width/2,r.height/2);
+ctx.font='11px Arial';ctx.fillText('उंगली से हटाएँ',r.width/2,r.height/2+22);
+}
+setup();
+let drawing=false,removed=false;
+function erase(e){
+const r=canvas.getBoundingClientRect();
+ctx.globalCompositeOperation='destination-out';
+ctx.beginPath();ctx.arc(e.clientX-r.left,e.clientY-r.top,23,0,Math.PI*2);ctx.fill();
+const data=ctx.getImageData(0,0,canvas.width,canvas.height).data;
+let count=0;
+for(let i=3;i<data.length;i+=32)if(data[i]===0)count++;
+if(count>data.length/32*.4&&!removed){
+removed=true;canvas.style.transition='opacity .6s';canvas.style.opacity=0;
+setTimeout(()=>canvas.remove(),650);
+}
+}
+canvas.addEventListener('pointerdown',e=>{drawing=true;canvas.setPointerCapture(e.pointerId);erase(e)});
+canvas.addEventListener('pointermove',e=>{if(drawing)erase(e)});
+canvas.addEventListener('pointerup',()=>drawing=false);
+canvas.addEventListener('pointercancel',()=>drawing=false);
+
+function openCard(){
+document.getElementById('doors').classList.add('open');
+setTimeout(()=>{
+document.getElementById('welcome').style.display='none';
+document.getElementById('inside').style.display='block';
+document.getElementById('nav').style.display='flex';
+showPage('home');
+},1200);
+}
+function showPage(id){
+document.querySelectorAll('#inside .page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+window.scrollTo({top:0,behavior:'smooth'});
+}
+function sendRSVP(){
+const n=document.getElementById('guestName').value||guest||'Guest';
+const c=document.getElementById('guestCount').value||'Not specified';
+const msg=`Namaste Pawar & Sarkar Families. ${n} will attend. Number of guests: ${c}.`;
+location.href='https://wa.me/?text='+encodeURIComponent(msg);
+}
+</script>
+</body>
+</html>
